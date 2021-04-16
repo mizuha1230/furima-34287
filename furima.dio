@@ -22,7 +22,7 @@
                 <mxCell id="9" value="product_name&#10;&#10;description&#10;&#10;category_id&#10;&#10;status_id&#10;&#10;delivery_charge_id&#10;&#10;shipment_source_id&#10;&#10;day_to_ship_id&#10;&#10;price&#10;&#10;user&#10;" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="6" vertex="1">
                     <mxGeometry y="26" width="160" height="259" as="geometry"/>
                 </mxCell>
-                <mxCell id="25" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="6" target="9" edge="1">
+                <mxCell id="25" value="" style="endArrow=none;html=1;rounded=0;entryX=0;entryY=0.656;entryDx=0;entryDy=0;entryPerimeter=0;exitX=-0.004;exitY=0.447;exitDx=0;exitDy=0;exitPerimeter=0;" parent="6" target="9" edge="1" source="9">
                     <mxGeometry relative="1" as="geometry">
                         <mxPoint y="150" as="sourcePoint"/>
                         <mxPoint x="-2" y="230" as="targetPoint"/>
