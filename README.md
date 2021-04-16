@@ -37,6 +37,9 @@
 - belongs_to :user
 - has_one :order
 
+image(画像)はActiveStorageを用いて実装する
+
+
 ## ordersテーブル
 
 | Column           | Type       | Options                        |
