@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe "Users", type: :system do
+RSpec.describe 'Users', type: :system do
   before do
     @user = FactoryBot.build(:user)
   end
@@ -25,7 +25,7 @@ RSpec.describe "Users", type: :system do
       # fill_in '生年月日', with: @user.birthday
       # 会員登録ボタンを押すとユーザーモデルのカウントが１上がることを確認する
       # expect{
-        # find('input[name="commit"]').click
+      # find('input[name="commit"]').click
       # }.to change { User.count }.by(1)
       # トップページへ遷移したことを確認する
       # expect(current_path).to eq(root_path)
