@@ -10,12 +10,13 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :product_name, presence: true
   validates :description, presence: true
-  validates :category_id, presence: true, numericality: { other_than: 1 }
-  validates :status_id, presence: true, numericality: { other_than: 1 }
-  validates :delivery_charge_id, presence: true, numericality: { other_than: 1 }
-  validates :shipment_source_id, presence: true, numericality: { other_than: 1 }
-  validates :day_to_ship_id, presence: true, numericality: { other_than: 1 }
-  with_options presence: true, numericality: { in: 300..9999999 }, format: { with: /\A[0-9]+\z/, message: 'Half-width number' } do
+  with_options presence: true, format: { with: /\A[0-9]+\z/, message: 'Half-width number' }, numericality: { in: 300..9999999, message: 'Out of setting range' } do
     validates :price
   end
+  validates :category_id, presence: true, numericality: { other_than: 1, message: 'Select' }
+  validates :status_id, presence: true, numericality: { other_than: 1, message: 'Select' }
+  validates :delivery_charge_id, presence: true, numericality: { other_than: 1, message: 'Select' }
+  validates :shipment_source_id, presence: true, numericality: { other_than: 1, message: 'Select' }
+  validates :day_to_ship_id, presence: true, numericality: { other_than: 1, message: 'Select' }
+  
 end
