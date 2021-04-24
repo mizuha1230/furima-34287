@@ -1,5 +1,6 @@
 class Item < ApplicationRecord
   has_one_attached :image
+  belongs_to :user
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to_active_hash :category
   belongs_to_active_hash :status
@@ -10,9 +11,8 @@ class Item < ApplicationRecord
   validates :image, presence: true
   validates :product_name, presence: true, length: { maximum: 40 }
   validates :description, presence: true, length: { maximum: 1000 }
-  with_options presence: true, format: { with: /\A[0-9]+\z/, message: 'Half-width number' }, numericality: { in: 300..9999999, message: 'Out of setting range' } do
-    validates :price
-  end
+  validates :price, presence: true, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
+  validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'Out of setting range' }
   validates :category_id, presence: true, numericality: { other_than: 1, message: 'Select' }
   validates :status_id, presence: true, numericality: { other_than: 1, message: 'Select' }
   validates :delivery_charge_id, presence: true, numericality: { other_than: 1, message: 'Select' }
