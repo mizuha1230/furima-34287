@@ -13,7 +13,8 @@ class Item < ApplicationRecord
     validates :product_name, length: { maximum: 40 }
     validates :description, length: { maximum: 1000 }
     validates :price, numericality: { with: /\A[0-9]+\z/, message: 'Half-width number' }
-    validates :price, numericality: {greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999, message: 'Out of setting range' }
+    validates :price,
+              numericality: { greater_than_or_equal_to: 300, less_than_or_equal_to: 9_999_999, message: 'Out of setting range' }
     validates :category_id
     validates :status_id
     validates :delivery_charge_id
@@ -28,5 +29,4 @@ class Item < ApplicationRecord
     validates :shipment_source_id
     validates :day_to_ship_id
   end
-  
 end
