@@ -10,7 +10,7 @@ FactoryBot.define do
     day_to_ship_id            { 2 }
     after(:build) do |item|
       item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
-     end
+    end
     association :user
   end
 end
