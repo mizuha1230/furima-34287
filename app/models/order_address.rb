@@ -1,3 +1,3 @@
-class Address
+class OrderAddress
   include ActiveModel::Model
 end
