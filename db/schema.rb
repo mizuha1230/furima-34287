@@ -50,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_05_02_042946) do
     t.integer "category_id"
     t.integer "status_id"
     t.integer "delivery_charge_id"
-    t.integer "shipment_source_id"
+    t.integer "prefecture_id"
     t.integer "day_to_ship_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -62,7 +62,7 @@ ActiveRecord::Schema.define(version: 2021_05_02_042946) do
     t.integer "category_id"
     t.integer "status_id"
     t.integer "delivery_charge_id"
-    t.integer "shipment_source_id"
+    t.integer "prefecture_id"
     t.integer "day_to_ship_id"
     t.integer "price"
     t.bigint "user_id"

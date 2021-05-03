@@ -6,7 +6,7 @@ class Item < ApplicationRecord
   belongs_to_active_hash :category
   belongs_to_active_hash :status
   belongs_to_active_hash :delivery_charge
-  belongs_to_active_hash :shipment_source
+  belongs_to_active_hash :prefecture
   belongs_to_active_hash :day_to_ship
 
   with_options presence: true do
@@ -19,7 +19,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :status_id
     validates :delivery_charge_id
-    validates :shipment_source_id
+    validates :prefecture_id
     validates :day_to_ship_id
   end
 
@@ -27,7 +27,7 @@ class Item < ApplicationRecord
     validates :category_id
     validates :status_id
     validates :delivery_charge_id
-    validates :shipment_source_id
+    validates :prefecture_id
     validates :day_to_ship_id
   end
 end
