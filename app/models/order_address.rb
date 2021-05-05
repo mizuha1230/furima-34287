@@ -9,8 +9,8 @@ class OrderAddress
     validates :municipality
     validates :house_number
     validates :phone_number, numericality: { with: /\A[0-9]+\z/, message: 'Input only number' }
-  end
     validates :prefecture_id, numericality: {other_than: 1, message: 'Select'}
+  end
 
   def save
     order = Order.create(item_id: item_id, user_id: user_id)
