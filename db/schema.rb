@@ -46,25 +46,15 @@ ActiveRecord::Schema.define(version: 2021_05_02_042946) do
     t.index ["order_id"], name: "index_addresses_on_order_id"
   end
 
-  create_table "articles", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.integer "category_id"
-    t.integer "status_id"
-    t.integer "delivery_charge_id"
-    t.integer "prefecture_id"
-    t.integer "day_to_ship_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "product_name"
-    t.text "description"
-    t.integer "category_id"
-    t.integer "status_id"
-    t.integer "delivery_charge_id"
-    t.integer "prefecture_id"
-    t.integer "day_to_ship_id"
-    t.integer "price"
+    t.string "product_name", null: false
+    t.text "description", null: false
+    t.integer "category_id", null: false
+    t.integer "status_id", null: false
+    t.integer "delivery_charge_id", null: false
+    t.integer "prefecture_id", null: false
+    t.integer "day_to_ship_id", null: false
+    t.integer "price", null: false
     t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
