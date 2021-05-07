@@ -100,7 +100,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipment source Select')
       end
-      it 'shipment_source_idが「１」では出品できない' do
+      it 'prefecture_idが「１」では出品できない' do
         @item.shipment_source_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Shipment source Select')
@@ -115,7 +115,7 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include('Day to ship Select')
       end
-      it 'user_id場合は出品できない' do
+      it 'user_idがない場合は出品できない' do
         @item.user = nil
         @item.valid?
         expect(@item.errors.full_messages).to include('User must exist')
