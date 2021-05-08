@@ -22,19 +22,19 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order.errors.full_messages).to include("Postal code can't be blank")
       end
       it '郵便番号にはハイフンがないと、購入できない' do
-        @order.postal_code = 1234567
+        @order.postal_code = 1_234_567
         @order.valid?
-        expect(@order.errors.full_messages).to include("Postal code Input correctly")
+        expect(@order.errors.full_messages).to include('Postal code Input correctly')
       end
       it '都道府県がないと、購入できない' do
         @order.prefecture_id = ''
         @order.valid?
-        expect(@order.errors.full_messages).to include("Prefecture Select")
+        expect(@order.errors.full_messages).to include('Prefecture Select')
       end
       it 'prefecture_idが[1]では、購入できない' do
         @order.prefecture_id = 1
         @order.valid?
-        expect(@order.errors.full_messages).to include("Prefecture Select")
+        expect(@order.errors.full_messages).to include('Prefecture Select')
       end
       it '市区町村がないと、購入できない' do
         @order.municipality = ''
@@ -52,24 +52,24 @@ RSpec.describe OrderAddress, type: :model do
         expect(@order.errors.full_messages).to include("Phone number can't be blank")
       end
       it '電話番号は11桁以内の数値以外は購入できない' do
-        @order.phone_number = 123456789012
+        @order.phone_number = 123_456_789_012
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number Input only number")
+        expect(@order.errors.full_messages).to include('Phone number Input only number')
       end
       it '電話番号は全角数字では購入できない' do
         @order.phone_number = '０９０１２３４５６７８'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number Input only number")
+        expect(@order.errors.full_messages).to include('Phone number Input only number')
       end
       it '電話番号は半角英数字混合では購入できない' do
         @order.phone_number = 'test1234567'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number Input only number")
+        expect(@order.errors.full_messages).to include('Phone number Input only number')
       end
       it '電話番号は半角英語では購入できない' do
         @order.phone_number = 'testtesttes'
         @order.valid?
-        expect(@order.errors.full_messages).to include("Phone number Input only number")
+        expect(@order.errors.full_messages).to include('Phone number Input only number')
       end
       it 'user_idがないと購入できない' do
         @order.user_id = nil
@@ -81,7 +81,7 @@ RSpec.describe OrderAddress, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("Item can't be blank")
       end
-      it "tokenが空では購入できない" do
+      it 'tokenが空では購入できない' do
         @order.token = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Token can't be blank")
