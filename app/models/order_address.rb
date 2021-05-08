@@ -1,6 +1,6 @@
 class OrderAddress
   include ActiveModel::Model
-  attr_accessor :postal_code, :prefecture_id, :municipality, :house_number, :building_name, :phone_number, :item_id, :user_id, :image
+  attr_accessor :postal_code, :prefecture_id, :municipality, :house_number, :building_name, :phone_number, :item_id, :user_id, :image, :token
 
   VALID_PHONE_REGEX = /\A\d{10}$|^\d{11}\z/
   with_options presence: true do
@@ -11,6 +11,7 @@ class OrderAddress
     validates :house_number
     validates :phone_number, format: {with: VALID_PHONE_REGEX, message: 'Input only number'}
     validates :prefecture_id, numericality: {other_than: 1, message: 'Select'}
+    validates :token
   end
 
   def save

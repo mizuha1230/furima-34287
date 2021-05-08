@@ -4,7 +4,6 @@ RSpec.describe OrderAddress, type: :model do
   describe '商品の購入' do
     before do
       @order = FactoryBot.build(:order_address)
-      @item = FactoryBot.build(:item)
     end
     context '商品の購入ができる時' do
       it '全ての項目が正しく入力されていれば購入できる' do
@@ -81,6 +80,11 @@ RSpec.describe OrderAddress, type: :model do
         @order.item_id = nil
         @order.valid?
         expect(@order.errors.full_messages).to include("Item can't be blank")
+      end
+      it "tokenが空では購入できない" do
+        @order.token = nil
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Token can't be blank")
       end
     end
   end
