@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
 
   def item_params
     params.require(:item).permit(:image, :product_name, :description, :category_id, :status_id, :delivery_charge_id,
-                                 :shipment_source_id, :day_to_ship_id, :price).merge(user_id: current_user.id)
+                                 :prefecture_id, :day_to_ship_id, :price).merge(user_id: current_user.id)
   end
 
   def set_item
@@ -50,6 +50,6 @@ class ItemsController < ApplicationController
   end
 
   def redirect_root
-    redirect_to root_path unless current_user.id == @item.user_id
+    redirect_to root_path unless current_user.id == @item.user_id && @item.order.blank?
   end
 end
